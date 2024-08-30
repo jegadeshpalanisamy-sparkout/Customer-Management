@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            <h4>Register</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <!-- Name field -->
+              <div class="form-group mb-3">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name" formControlName="name" >
+                <div *ngIf="name?.invalid && name?.touched" class="text-danger">
+                  Name is required.
+                </div>
+              </div>
+  
+              <!-- Email field -->
+              <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email" formControlName="email">
+                <div *ngIf="email?.invalid && email?.touched" class="text-danger">
+                  <div *ngIf="email?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="email?.errors?.['email']">Enter a valid email.</div>
+                </div>
+              </div>
+  
+              <!-- Password field -->
+              <div class="form-group mb-3">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" formControlName="password">
+                <div *ngIf="password?.invalid && password?.touched" class="text-danger">
+                  <div *ngIf="password?.errors?.['required']">Password is required.</div>
+                  <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                </div>
+              </div>
+  
+              <!-- Phone field -->
+              <div class="form-group mb-4">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" formControlName="phone">
+                <div *ngIf="phone?.invalid && phone?.touched" class="text-danger">
+                  <div *ngIf="phone?.errors?.['required']">Phone number is required.</div>
+                  <div *ngIf="phone?.errors?.['pattern']">Enter a valid 10-digit phone number.</div>
+                </div>
+  
+              </div>
+              <!-- Custom error message -->
+              <span class="text-danger" *ngIf="this.errorMessage">
+                <p [innerText]="this.errorMessage"></p>
+              </span>
+
+  
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="!registerForm.valid || isLoading" >Register</button>
+               <!-- Loading spinner -->
+              <app-spinner *ngIf="isLoading"></app-spinner>
+            </form>
+          </div>
+          <div class="card-footer text-center">
+            <p class="mb-0">Already have an account? <a routerLink="/login">Go to Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
