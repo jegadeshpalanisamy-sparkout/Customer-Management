@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h3>Customer Details</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Name: {{ customer.name }}</h5>
+            <p class="card-text">
+                <strong>Phone:</strong> {{ customer.phone }}<br>
+                <strong>Email:</strong> {{ customer.email }}<br>
+                <strong>Date of Birth:</strong> {{ customer.dob | date }}<br>
+                <strong>Address:</strong> {{ customer.address }}<br>
+                <strong>Description:</strong> {{ customer.description }}
+            </p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="" class="btn btn-warning" routerLink="/dashboard">Go back</a>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,47 @@
 <div class="container">
     <div class="text-center">
-        <h3 [innerText]="'welcome '+user.name"></h3>
-        <h4 [innerText]="'Your Firebase ID:'+user.id"></h4>
+        <h3 [innerText]="'Welcome ' + user.name"></h3>
+        <h4 [innerText]="'Your Firebase ID: ' + user.id"></h4>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h4 class="text-center mb-4">Customer List</h4>
+    <div class="d-flex justify-content-between mb-3">
+        <div></div> <!-- Placeholder to push the button to the right -->
+        <button class="btn btn-success" routerLink="customer/create">Add Customer</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered custom-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                    <th>Description</th>
+                    <th>Actions</th> <!-- Actions Column -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.dob | date: 'MMMM d, y' }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.description }}</td>
+                    <td>
+                        <!-- Action Buttons -->
+                        <button class="btn btn-sm btn-primary mr-2" [routerLink]="['/customer', customer.id, 'view']">View</button> &nbsp;
+                        <button class="btn btn-sm btn-warning mr-2" [routerLink]="['/customer', customer.id, 'edit']">Edit</button> &nbsp;
+                        <button class="btn btn-sm btn-danger" (click)="deletePost(customer.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

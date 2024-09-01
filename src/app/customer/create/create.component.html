@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="form-container bg-white">
+        <h2 class="mb-4">Customer Form</h2>
+        <form [formGroup]="CustomerFormGroup" (ngSubmit)="submit()"> 
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+                <span *ngIf="form['name'].touched && form['name'].invalid">
+                    <span *ngIf="form['name'].errors?.['required']">Name is required</span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter phone number" formControlName="phone">
+                <span *ngIf="form['phone'].touched && form['phone'].invalid">
+                    <span *ngIf="form['phone'].errors?.['required']">Phone number is required</span>
+                    <span *ngIf="form['phone'].errors?.['pattern']">Phone number must be 10 digits</span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+                <span *ngIf="form['email'].touched && form['email'].invalid">
+                    <span *ngIf="form['email'].errors?.['required']">Email is required</span>
+                    <span *ngIf="form['email'].errors?.['email']">Invalid email format</span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="dob" class="form-label" >Date of Birth</label>
+                <input type="date" class="form-control" id="dob" formControlName="dob">
+                <span *ngIf="form['dob'].touched && form['dob'].invalid">
+                    <span *ngIf="form['dob'].errors?.['required']">Date of birth is required</span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" rows="3" placeholder="Enter address" formControlName="address"></textarea>
+                <span *ngIf="form['address'].touched && form['address'].invalid">
+                    <span *ngIf="form['address'].errors?.['required']">Address is required</span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="4" placeholder="Enter description" formControlName="description" ></textarea>
+                <span *ngIf="form['description'].touched && form['description'].invalid">
+                    <span *ngIf="form['description'].errors?.['required']">Description is required</span>
+                </span>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="CustomerFormGroup.invalid">Submit</button> &nbsp;
+            <a href="" class="btn btn-warning" routerLink="/dashboard">Go back</a>
+        </form>
+    </div>
+</div>

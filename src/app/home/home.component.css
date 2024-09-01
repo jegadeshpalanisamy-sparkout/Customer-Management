@@ -1,0 +1,28 @@
+.card-custom {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.card-custom:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.hero-section {
+    background: #f8f9fa;
+    padding: 60px 0;
+}
+.hero-text {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.padding{
+    padding: 120px;
+}
+
+.bg{
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 8px 16px rgba(207, 11, 225, 0.3);
+    background-color: rgb(149, 3, 149);
+}

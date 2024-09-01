@@ -1,0 +1,23 @@
+/* Add a shadow effect to the table */
+.custom-table {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .custom-table thead {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .custom-table th, .custom-table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+  }
+  
